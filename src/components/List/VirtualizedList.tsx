@@ -5,22 +5,22 @@ import AutoSizer from "react-virtualized-auto-sizer";
 
 
 interface RowProps {
-    data: string[];
     index: number;
     style: any;
 }
 
-const Row = ({ index, style }: RowProps) => {
-    const { data } = useAppContext();
-    return (
-        <div style={ style }>
-            { data[index] }
-        </div>
-    )
-};
 
 const VirtualizedList = () => {
     const { data } = useAppContext();
+
+    const Row = ({ index, style }: RowProps) => {
+        return (
+            <div style={ style }>
+                { data[index] }
+            </div>
+        )
+    };
+
     const listLength = data.length;
     const itemSize = 45;
     return (
